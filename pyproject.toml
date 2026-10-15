@@ -1,7 +1,7 @@
 [project]
-name = "stage-11"
+name = "langgraph-hitl-agent"
 version = "0.1.0"
-description = "Add your description here"
+description = "LangGraph agent with human-in-the-loop approval, FastAPI SSE streaming and Postgres checkpoints"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
