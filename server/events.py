@@ -97,7 +97,10 @@ EventAdapter = TypeAdapter(Event)
 
 def to_payload(event: _Event) -> dict:
     """Body stored in run_events.payload and sent as SSE data (type lives in the envelope)."""
-    return event.model_dump(exclude={"type"}, exclude_defaults=False)
+    data = event.model_dump(exclude={"type"})
+    if not data.get("unpersisted"):
+        data.pop("unpersisted", None)
+    return data
 
 
 def to_sse(event: _Event, seq: int | None = None) -> dict:
